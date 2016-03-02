@@ -19,7 +19,7 @@ defmodule HackernewsApi.Mixfile do
   def application do
     [mod: {HackernewsApi, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :httpoison]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +36,10 @@ defmodule HackernewsApi.Mixfile do
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:floki, "~> 0.7"},
+     {:httpoison, "~> 0.8.0"}
+   ]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
