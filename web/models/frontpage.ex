@@ -25,22 +25,25 @@ defmodule Hackernews.Frontpage do
   end
 
   def extract_story(markup) do
-    story_link = Floki.find(markup, "td.subtext > a[href^=item]") |> Floki.attribute("href") |> List.first
-    user_link  = Floki.find(markup, "td.subtext > a[href^=user]") |> Floki.attribute("href") |> List.first
+    story_link        = Floki.find(markup, "td.subtext > a[href^=item]") |> Floki.attribute("href") |> List.first
+    user_link         = Floki.find(markup, "td.subtext > a[href^=user]") |> Floki.attribute("href") |> List.first
+    score             = Floki.find(markup, "td.subtext > span.score") |> Floki.text
+    hn_link           = Enum.join([@domain, story_link])
+    profile_link      = Enum.join([@domain, user_link])
 
     user = %{
       username: Floki.find(markup, "td.subtext > a[href^=user]") |> Floki.text,
-      link:     Enum.join([@domain, user_link])
+      link:     profile_link
     }
 
     %{
       user:       user,
+      hn_link:    hn_link,
+      score:      score,
       id:         Floki.find(markup, "td.subtext > span.age > a[href^=item]") |> Floki.attribute("href") |> List.first |> String.split("=") |> List.last |> String.to_integer,
       title:      Floki.find(markup, "td.title > a") |> Floki.text,
       link:       Floki.find(markup, "td.title > a") |> Floki.attribute("href") |> List.first,
       source:     Floki.find(markup, "td.title > span.sitebit") |> Floki.text |> String.strip,
-      hn_link:    Enum.join([@domain, story_link]),
-      score:      Floki.find(markup, "td.subtext > span.score") |> Floki.text,
       comments:   Floki.find(markup, "td.subtext > a[href^=item]") |> Floki.text,
       posted_ago: Floki.find(markup, "td.subtext > span.age") |> Floki.text
     }
