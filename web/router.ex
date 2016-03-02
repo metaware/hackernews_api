@@ -13,14 +13,10 @@ defmodule HackernewsApi.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", HackernewsApi do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
-
   # Other scopes may use custom stacks.
-  # scope "/api", HackernewsApi do
-  #   pipe_through :api
-  # end
+  scope "/api", HackernewsApi do
+    pipe_through :api
+
+    get "/top-stories", StoriesController, :top_stories
+  end
 end
