@@ -1,0 +1,20 @@
+{
+  "name": "HackerNews Frontpage JSON API",
+  "description": "HackerNews Frontpage turned into a JSON API using Elixir/Phoenix",
+  "repository": "https://github.com/metaware/hackernews_api",
+  "addons": ["heroku-postgresql:hobby-dev"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+    }, {
+      "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
+    }
+  ],
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "mix phoenix.gen.secret"
+    }
+  },
+  "keywords": ["elixir", "phoenix", "hacker news", "json"]
+}

@@ -1,4 +1,6 @@
-# HackernewsApi
+# Hacker News Frontpage API using Elixir & Phoenix
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 To start your Phoenix app:
 
@@ -18,3 +20,8 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: http://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+## License
+Copyright (c) 2016 [Jasdeep Singh](http://jasdeep.ca) ([Metaware Labs Inc](http://metawarelabs.com/))
+
+Licensed under the MIT license.
