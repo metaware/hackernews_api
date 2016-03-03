@@ -14,7 +14,7 @@
   "env": {
     "SECRET_KEY_BASE": {
       "description": "A secret key for verifying the integrity of signed cookies.",
-      "generator": "mix phoenix.gen.secret"
+      "generator": "secret"
     }
   },
   "keywords": ["elixir", "phoenix", "hacker news", "json"]
