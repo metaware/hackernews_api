@@ -3,6 +3,7 @@
   "description": "HackerNews Frontpage turned into a JSON API using Elixir/Phoenix",
   "repository": "https://github.com/metaware/hackernews_api",
   "addons": ["heroku-postgresql:hobby-dev"],
+  "logo": "http://i.imgur.com/j93V8BZ.png",
   "buildpacks": [
     {
       "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
