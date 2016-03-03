@@ -17,5 +17,6 @@
       "generator": "secret"
     }
   },
+  "success_url": "/api/top-stories",
   "keywords": ["elixir", "phoenix", "hacker news", "json"]
 }
