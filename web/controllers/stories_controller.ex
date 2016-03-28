@@ -8,10 +8,8 @@ defmodule HackernewsApi.StoriesController do
   def show_hn(conn, _params),        do: stories("show", conn)
   def ask_hn(conn, _params),         do: stories("ask", conn)
 
-
-
   defp stories(path, conn) do
-    case Hackernews.Frontpage.fetch do
+    case Hackernews.Frontpage.fetch(path) do
       {:ok, response}  -> json(conn, response)
       {:error, reason} -> json(conn, reason)
     end
