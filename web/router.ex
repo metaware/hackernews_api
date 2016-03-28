@@ -27,7 +27,7 @@ defmodule HackernewsApi.Router do
     get "/active-stories", StoriesController, :active_stories
     get "/newest-stories", StoriesController, :newest_stories
     get "/best-stories",  StoriesController, :best_stories
-    get "/show-hn",       StoriesController, :show_hn
+    # get "/show-hn",       StoriesController, :show_hn
     get "/ask-hn",        StoriesController, :ask_hn
 
   end
