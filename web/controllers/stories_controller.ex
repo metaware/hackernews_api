@@ -11,7 +11,7 @@ defmodule HackernewsApi.StoriesController do
 
 
   defp stories(path, conn) do
-    case Hackernews.Frontpage.fetch do
+    case Hackernews.Frontpage.fetch(path) do
       {:ok, response}  -> json(conn, response)
       {:error, reason} -> json(conn, reason)
     end
