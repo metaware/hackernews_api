@@ -6,19 +6,19 @@ defmodule Hackernews.Frontpage do
   @domain "https://news.ycombinator.com/"
 
   def process_url(url) do
-    @domain
+    @domain <> url
   end
 
   def process_response_body(html) do
-    Floki.find(html, "table.itemlist > tr") 
+    Floki.find(html, "table.itemlist > tr")
     |> Enum.take(90)
     |> Enum.chunk(3)
-    |> Enum.map(&Hackernews.Frontpage.extract_story/1)
+    |> Enum.map(&extract_story/1)
   end
 
-  def fetch do
-    Hackernews.Frontpage.start
-    case Hackernews.Frontpage.get("") do
+  def fetch(path \\ "") do
+    start
+    case get(path) do
       {:ok, response}   -> {:ok, response.body}
       {:error, reason}  -> {:ok, "Something went wrong"}
     end
